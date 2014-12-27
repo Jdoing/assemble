@@ -1,6 +1,5 @@
 .section .data
 		n: .int 3
-		b: .int 1057
         format: .asciz "%d\n"
 .section .text
 .global _start
@@ -12,11 +11,11 @@ _start:
 		movl n, %ecx		
 		movl %ecx, (%esp)
 		call fact_for
-		
-		
+
 		pushl %eax
         pushl $format
         call printf
+        
         movl $0, (%esp)
         call exit
         

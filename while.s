@@ -1,6 +1,5 @@
 .section .data
 		n: .int 3
-		b: .int 1057
         format: .asciz "%d\n"
 .section .text
 .global _start

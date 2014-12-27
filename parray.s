@@ -36,6 +36,19 @@ parray:
 		jle .done
 .loop:
 		movl (%edx, %ecx, 4), %eax
+		
+		call print
+		
+		inc %ecx
+		cmp %ecx, %ebx
+		jg .loop		
+.done:
+		addl $20, %esp
+		popl %ebx
+		popl %ebp
+		ret
+		
+print:
 		pushl %edx
 		pushl %ecx
 		
@@ -46,14 +59,6 @@ parray:
 		addl $8, %esp
 		popl %ecx
 		popl %edx
-		
-		inc %ecx
-		cmp %ecx, %ebx
-		jg .loop		
-.done:
-		addl $20, %esp
-		popl %ebx
-		popl %ebp
 		
 		ret
 		
