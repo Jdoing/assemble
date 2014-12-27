@@ -26,7 +26,6 @@ parray:
 		pushl %ebp
 		movl %esp, %ebp
 		push %ebx		
-		subl $20, %esp	#allocate space
 		
 		movl 8(%ebp), %edx	#get &array
 		movl 12(%ebp), %ebx	#get len
@@ -43,7 +42,6 @@ parray:
 		cmp %ecx, %ebx
 		jg .loop		
 .done:
-		addl $20, %esp
 		popl %ebx
 		popl %ebp
 		ret

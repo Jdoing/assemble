@@ -32,7 +32,7 @@ _start:
 		#leave
 		#ret
 		
-        pushl a
+        pushl %eax
         pushl $format
         call printf
         movl $0, (%esp)
@@ -51,6 +51,8 @@ swap_add:
 		
 		movl %eax, (%edx)
 		movl %ebx, (%ecx)
+		
+		addl %ebx, %eax
 		
 		popl %ebx
 		popl %ebp
