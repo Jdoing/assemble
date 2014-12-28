@@ -8,29 +8,14 @@ _start:
 		pushl %ebp
 		movl %esp, %ebp
 		subl $24, %esp
-		
-		movl a, %edx
-		movl b, %ecx
-		
-		movl %edx, -4(%ebp)
-		movl %ecx, -8(%ebp)
-		
-		leal -8(%ebp), %eax
+
+		movl $a, %eax
 		movl %eax, 4(%esp)
-		
-		leal -4(%ebp), %eax
+
+		movl $b, %eax
 		movl %eax, (%esp)
 				
 		call swap_add
-		
-		movl -4(%ebp), %edx
-		subl -8(%ebp), %edx
-		
-		imul %edx, %eax
-		
-		#movl %eax, %edx
-		#leave
-		#ret
 		
         pushl a
         pushl $format

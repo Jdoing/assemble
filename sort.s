@@ -21,7 +21,7 @@ _start:
 		
 		movl $0, (%esp)	#deallocate space
         call exit
-sort:
+sort:					#3, 0, 5, 1, 4, 6, 2, 9, 8, 7
 		pushl %ebp
 		movl %esp, %ebp
 		pushl %ebx
@@ -62,12 +62,17 @@ sort:
 		inc %eax
 		cmp %eax, %ebx
 		jle .L1
+		
 		jmp .L2
 
 .L1: 
 		inc %ecx
 		cmp %ecx, %ebx
 		jle .done
+		
+		leal 1(%ecx), %eax #init j=i+1
+		cmp %eax, %ebx
+		jle .L1
 		jmp .L2
 
 swap:
