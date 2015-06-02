@@ -37,8 +37,7 @@ sort:					#3, 0, 5, 1, 4, 6, 2, 9, 8, 7
 		leal 1(%ecx), %eax #init j=i+1
 
 		cmp %eax, %ebx
-		jle .L1
-		
+		jle .L1	
 .L2:
 		movl (%edx, %ecx, 4), %esi	#get a[i]
 		movl (%edx, %eax, 4), %edi	#get a[j]
@@ -56,15 +55,13 @@ sort:					#3, 0, 5, 1, 4, 6, 2, 9, 8, 7
 		inc %eax
 		cmp %eax, %ebx
 		jle .L1		
-		jmp .L2
-		
+		jmp .L2	
 .C1:
 		inc %eax
 		cmp %eax, %ebx
 		jle .L1
 		
 		jmp .L2
-
 .L1: 
 		inc %ecx
 		cmp %ecx, %ebx
@@ -74,7 +71,6 @@ sort:					#3, 0, 5, 1, 4, 6, 2, 9, 8, 7
 		cmp %eax, %ebx
 		jle .L1
 		jmp .L2
-
 swap:
 		pushl %ebp
 		movl %esp, %ebp
@@ -98,8 +94,7 @@ swap:
 		popl %eax
 		
 		popl %ebp
-		ret
-		
+		ret	
 .done:
 		addl $20, %esp
 		popl %ebx
@@ -128,8 +123,7 @@ parray:
 .done2:
 		popl %ebx
 		popl %ebp
-		ret
-		
+		ret	
 print:
 		pushl %edx
 		pushl %ecx

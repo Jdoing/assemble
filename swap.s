@@ -15,15 +15,20 @@ _start:
 		movl $b, %eax
 		movl %eax, (%esp)
 				
-		call swap_add
+		call swap
 		
         pushl a
         pushl $format
         call printf
+        
+        pushl b
+        pushl $format
+        call printf
+        
         movl $0, (%esp)
         call exit
 			
-swap_add:
+swap:
 		pushl %ebp
 		movl %esp, %ebp
 		pushl %ebx

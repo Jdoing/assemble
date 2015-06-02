@@ -1,0 +1,26 @@
+/*************************************************************************
+	> File Name: dowhile.c
+	> Author: 
+	> Mail: 
+	> Created Time: Sat 27 Dec 2014 10:43:15 AM CST
+ ************************************************************************/
+#include<stdio.h>
+int fact_do(int n)
+{
+    int result = 1;
+    do
+    {
+        result *= n;
+        n = n-1;
+    }while(n > 1);
+    
+	return result;
+}
+
+int main()
+{
+    int n = 3;
+	int result = fact_do(n);
+    printf("result=%d\n",result);
+    return 0;
+}
