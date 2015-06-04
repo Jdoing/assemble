@@ -1,15 +1,12 @@
-#plus.s
-.data					# 数据段声明
-		a = .int 10
-		b = .int 20
+#add.s 
+.data                    # 数据段声明
+        a : .int 10      
 .text                    # 代码段声明
 .global _start           # 指定入口函数
-
-_start
-		movl a, %edx
-		movl b, %ecx
-		addl %ecx, %edx
-		movl $1, %ebx    # 参数一：文件描述符(stdout) 
+        
+_start:                  
+        movl a, %ecx  
+        movl $1, %ebx    # 参数一：文件描述符(stdout) 
         movl $4, %eax    # 系统调用号(sys_write) 
         int  $0x80       # 调用内核功能
         
